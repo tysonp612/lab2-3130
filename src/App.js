@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route,useLocation } from "react-router-dom";
+import {useState} from "react";
+//PAGES
+import Home from './Home';
+import Contact from './Contact';
+import About from './About';
+
+
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter className="App">
+      <Routes>
+        <Route path="/" element={<Home count={count} setCount={setCount}/>} />
+        <Route path="/home" element={<Home count={count} setCount={setCount}/>}/>
+        <Route path="/contact" element={<Contact count={count}/>} />
+        <Route path="/about" element={<About count={count}/>} />
+      </Routes>
+    </BrowserRouter>
     </div>
+   
   );
 }
 
