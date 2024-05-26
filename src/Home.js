@@ -2,18 +2,13 @@ import {useNavigate,useLocation} from "react-router-dom";
 import { useEffect } from "react";
 
  let hasIncremented = false;
-function Home({count, setCount}) {
+function Home({setCount}) {
     const navigate = useNavigate();
     const pages = ["Contact","About"];
    
     useEffect(() => {
-       if (!hasIncremented) {
-           setCount(prevCount => prevCount + 1);
-            hasIncremented = true;
-        }else{
-           hasIncremented = false;
-        }
-      
+         setCount(prevCount => prevCount + 1);
+    
     }, []);
 
   return (  
